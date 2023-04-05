@@ -6,7 +6,7 @@ app = FastAPI(title="Sample FastAPI",
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "Earth"}
 
 
 if __name__ == "__main__":
