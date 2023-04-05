@@ -15,6 +15,7 @@ def get_peoples():
 def get_one_people(id: int = Path()):
     return data[id]
 
+from pydantic import BaseModel, Field
 
 class People(BaseModel):
     id: int = Field(..., description="first name")
