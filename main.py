@@ -8,21 +8,23 @@ import joblib
 app = FastAPI(title="Sample FastAPI",
               description="For education", version="1.0")
 
+model = joblib.load('c45_classifier.pkl')
+
 class Input(BaseModel):
-    pregnancies : float = Field(0) 
-    glocose: float = Field(0) 
-    blood_pressure: float = Field(0) 
-    skin_thickness: float = Field(0)
+    pregnancies : float = Field(0, example=0) 
+    glocose: float = Field(0, example=0) 
+    blood_pressure: float = Field(0, example=0) 
+    skin_thickness: float = Field(0, example=0)
     insulin: float = Field(0)
-    diabetes_ped_func: float = Field(0)
-    age: float = Field(0)
-    BMI: float = Field(0)
+    diabetes_ped_func: float = Field(0, example=0)
+    age: float = Field(..., example=0)
+    bmi: float = Field(..., example=0)
     
 @app.post("/prediction")
 def prediction(data: Input):
     data = dict(data)
-    print(data)
-    return data
+    result = {"status": "OK", "result": ""}
+    return result
 
 
 if __name__ == "__main__":
