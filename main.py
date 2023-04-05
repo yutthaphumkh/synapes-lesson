@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Path, Body
 import uvicorn
 from pydantic import BaseModel, Field
+import numpy as np
+import pandas as pd
+import joblib
 
 app = FastAPI(title="Sample FastAPI",
               description="For education", version="1.0")
